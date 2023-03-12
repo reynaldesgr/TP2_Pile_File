@@ -13,10 +13,15 @@
  * @param [in] fin l'indice du dernier caractere
  * @param [in, out] T : un tableau de caracteres
  */
-//  initTab()
-// {
-// 	//  TO DO
-// }
+void initTab(int deb, int fin, char * T)
+{
+    int i;
+
+    for (i = deb; i <= fin; i++)
+    {
+        T[i] = (65 + i - 1);
+    }
+}
 
 /** TO DO
  * @brief afficher les caracteres d'un tableau de l'indice deb a l'indice fin a l'ecran
@@ -24,20 +29,29 @@
  * @param [in] fin l'indice du dernier caractere
  * @param [in] T : un tableau de caracteres
 */
-//  printTab()
-// {
-// 	//  TO DO
-// }
+void printTab(int deb, int fin, char T[])
+{
+    int i;
+    
+    for (i = deb; i < fin; i++)
+    {
+        printf("%c  ", T[i]);
+    }
+
+    printf("\n");
+}
 
 /** TO DO
  * @brief echanger les valeurs de 2 variables de type caractere
  * @param [in, out] a l'adresse de la 1ere variable 
  * @param [in, out] b l'adresse de la 2eme variable 
  */
-//  echangerChar()
-// {
-// 	//  TO DO
-// }
+void echangerChar(char * a, char * b)
+{
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 /** TO DO
  * @brief l'algorithme recursive
@@ -45,10 +59,27 @@
  * @param [in] n l'indice du dernier element 
  * @param [in] T tableau de n caractere de l'indice 1 a l'indice n 
  */
-//  truc_rec()
-// {
-// 	//  TO DO
-// }
+void truc_rec(int i, int n, char * T)
+{
+    int j;
+
+    if (i == n)
+    {
+        for (j = 1; j <= n; j++)
+        {
+            printf("%c ", T[j]);
+        }
+    }
+    else
+    {
+        for (j = i; j <= n; j++)
+        {
+            echangerChar(&T[i], &T[j]);
+            truc_rec(i + 1, n, T);
+            echangerChar(&T[i], &T[j]);
+        }
+    }
+}
 
 /** TO DO
  * @brief l'algorithme iterative
@@ -56,7 +87,30 @@
  * @param [in] n l'indice du dernier element 
  * @param [in] T tableau de n+1 caracteres de l'indice 0 a l'indice n 
  */
-//  truc_iter()
-// {
-// 	// TO DO
-// }
+void truc_iter(int i, int n, char * T)
+{
+    eltType    i_iter = {65 + i - 1, i};
+    eltType    n_iter = {65 + n - 1, n};
+    int    stop   = 0;
+    int    code;
+    pile_t p;
+
+    while (!stop)
+    {
+        if (i_iter.num == n_iter.num)
+        {
+            for (j = 1; j <= n_iter.num; j++)
+            {
+                printf("%c ", T[j]);
+            }
+            stop = 1;
+        }else{
+            while (i_iter.num != n_iter.num){
+                empiler(p, i_iter, &code);
+                empiler(p, n_iter, &code);
+            }
+
+            /** pas fini **/
+        }
+    }
+}

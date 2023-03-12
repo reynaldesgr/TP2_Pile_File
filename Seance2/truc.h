@@ -12,7 +12,7 @@
  * @param [in] fin l'indice du dernier caractere
  * @param [in, out] T : un tableau de caracteres
  */
-// initTab();
+void initTab(int deb, int fin, char * T);
 
 /** TO DO
  * @brief afficher les caracteres d'un tableau de l'indice deb a l'indice fin
@@ -20,14 +20,14 @@
  * @param [in] fin l'indice du dernier caractere
  * @param [in] T : un tableau de caracteres
 */
-// printTab();
+void printTab(int deb, int fin, char T[]);
 
 /** TO DO
  * @brief echanger les valeurs de 2 variables de type caractere
  * @param [in, out] a l'adresse de la 1ere variable 
  * @param [in, out] b l'adresse de la 2eme variable 
  */
-// echangerChar();
+void echangerChar(char * a, char * b);
 
 /** TO DO
  * @brief afficher les combinations d'un ensemble d'elements - version recursive 1
@@ -36,7 +36,7 @@
  * @param [in] n l'indice du dernier element 
  * @param [in] T tableau de n caractere de l'indice 1 a l'indice n 
  */
-// truc_rec1();
+void truc_rec(int i, int n, char * T); // truc_rec1();
 
 /** TO DO
  * @brief afficher les combinations d'un ensemble d'elements - version recursive 0

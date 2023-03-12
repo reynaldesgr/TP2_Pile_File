@@ -19,7 +19,7 @@ TEST(Pile_SDD) {
 	CHECK( sizeof(*pile) == size_SDD ); 
 }
 
-/*
+
 TEST(truc_rec13) {
 	int n=3;
 	char T[n+1];
@@ -53,7 +53,7 @@ TEST(truc_rec14) {
 	truc_rec(1, 4, T);
 	printf("\033[0m\n");
 }
-
+/*
 
 TEST(truc_iter13) {
 	int n=3;
@@ -88,6 +88,7 @@ TEST(truc_iter14) {
 	printf("\033[0m\n");
 }
 */
+
 END_TEST_GROUP(TRUC)
 
 int main(void) {

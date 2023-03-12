@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra
 LDFLAGS =
 
-DIRUTEST = ../../
+DIRUTEST = ../
 DIRPF = ../
 #liste des fichiers source - tous les fichiers .c du repertoire
 SRC = truc_main.c truc.c $(DIRPF)eltType.c $(DIRPF)pile.c $(DIRUTEST)teZZt.c
@@ -26,6 +26,7 @@ eltType.o: eltType.c eltType.h
 
 $(DIRUTEST)teZZt.o: $(DIRUTEST)teZZt.c $(DIRUTEST)teZZt.h
 	$(CC) $(CFLAGS) -c $< -o $@
+
 
 .PHONY: clean reclean
 
