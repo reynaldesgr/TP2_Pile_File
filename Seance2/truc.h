@@ -52,6 +52,6 @@ void truc_rec(int i, int n, char * T); // truc_rec1();
  * @param [in] n l'indice du dernier element 
  * @param [in] T tableau de n+1 caracteres de l'indice 0 a l'indice n 
  */
-// truc_iter1();
+void truc_iter(int i, int n, char * T);
 
 #endif

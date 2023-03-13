@@ -35,7 +35,7 @@ void printTab(int deb, int fin, char T[])
     
     for (i = deb; i < fin; i++)
     {
-        printf("%c  ", T[i]);
+        printf("->%c  ", T[i]);
     }
 
     printf("\n");
@@ -69,6 +69,7 @@ void truc_rec(int i, int n, char * T)
         {
             printf("%c ", T[j]);
         }
+        printf("\n");
     }
     else
     {
@@ -90,27 +91,44 @@ void truc_rec(int i, int n, char * T)
 void truc_iter(int i, int n, char * T)
 {
     eltType    i_iter = {65 + i - 1, i};
-    eltType    n_iter = {65 + n - 1, n};
-    int    stop   = 0;
+    int    stop       = 0;
     int    code;
-    pile_t p;
+    eltType   j;
 
-    while (!stop)
+    // Initialisation de la pile & de j
+    pile_t * p        = initPile(PILE_SZ);
+    j.num = i_iter.num;
+
+    // Début itération
+    while(!stop)
     {
-        if (i_iter.num == n_iter.num)
+        if(j.num  <= n)
         {
-            for (j = 1; j <= n_iter.num; j++)
-            {
-                printf("%c ", T[j]);
-            }
-            stop = 1;
-        }else{
-            while (i_iter.num != n_iter.num){
-                empiler(p, i_iter, &code);
-                empiler(p, n_iter, &code);
-            }
+            while (i_iter.num != n){
+                empiler(p, &i_iter, &code);
+                empiler(p, &j, &code);
 
-            /** pas fini **/
+                echangerChar(&T[i_iter.num], &T[j.num]);
+                i_iter.num+=1;
+                j.num = i_iter.num;
+            }
+            for (int k = 1; k <= n; k++)
+            {
+                printf("%c ", T[k]);
+            }
+            printf("\n");
+        }
+
+        // Test: Pile vide
+        if (!estVidePile(p))
+        {
+            depiler(p, &j, &code);
+            depiler(p, &i_iter, &code);
+
+            echangerChar(&T[i_iter.num], &T[j.num]);
+            j.num+=1;   
+        }else{
+            stop = 1;
         }
     }
 }
