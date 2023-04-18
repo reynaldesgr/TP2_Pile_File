@@ -131,4 +131,6 @@ void truc_iter(int i, int n, char * T)
             stop = 1;
         }
     }
+
+    libererPile(&p);
 }
